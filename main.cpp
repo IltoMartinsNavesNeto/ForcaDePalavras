@@ -121,6 +121,15 @@
         cout << "\n\n";
     }
 
+    bool palavraCompleta(){
+        for(int i =0; i< strlen(palavraSort);i++){
+            if(palavraDigitada[i] == '_'){
+                return false;
+            }
+        }
+        return true;
+    }
+
     int main() {
 
 
@@ -138,7 +147,7 @@
         int contadorErros = 0;
         char letra;
 
-        while(contadorErros <= 6){
+        while(contadorErros < 6){
             system("cls");
             imprimeForca(contadorErros);
             imprimePalavraDigitada();
@@ -163,6 +172,18 @@
                     contadorErros++;
                     system("pause");
                 }
+            }
+
+            if(contadorErros >= 6){
+                system("cls");
+                cout << "\n\n\tSuas tentativas acabaram!\n Reinicie para tentar novamente\n";
+                system("pause");
+                return 0;
+            }
+            if(palavraCompleta()){
+                cout << "\n\n\tPARABENS \n VOCE ACERTOU A PALAVRA!\n";
+                system("pause");
+                return 0;
             }
         }
 
